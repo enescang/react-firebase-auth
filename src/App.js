@@ -33,19 +33,18 @@ function App() {
   return (
     <Router>
       <div>
-        <nav>
-          <ul>
-            <li>
-              <Link to="/">Home</Link>
-            </li>
-            <li>
-              <Link to="/login">Login</Link>
-            </li>
-            <li>
-              <Link to="/signup">Signup</Link>
-            </li>
-          </ul>
-        </nav>
+      <nav className="navbar navbar-expand-lg navbar-light bg-light">
+      <Link className="navbar-brand" to="/">React Firebase Auth</Link>
+  <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+    <span className="navbar-toggler-icon" />
+  </button>
+  <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
+    <div className="navbar-nav">
+    <Link className="nav-item nav-link" to="/login">Login</Link>
+    <Link className="nav-item nav-link" to="/signup">Signup</Link>
+    </div>
+  </div>
+</nav>
 
         {/* A <Switch> looks through its children <Route>s and
           renders the first one that matches the current URL. */}
