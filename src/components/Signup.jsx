@@ -17,21 +17,38 @@ const Signup = () => {
     };
     return (
         <>
+            <div className="container">
+                <div className="row justify-content-center">
+                    <div className="col-sm-6">
+                        <h2>Signup Page</h2>
+                        <hr />
+                        <form onSubmit={signupUser}>
+                            <div className="form-group">
+                                <label htmlFor="exampleInputEmail1">Email address</label>
+                                <input
+                                    onChange={(event) => setEmail(event.target.value)}
+                                    type="email"
+                                    className="form-control"
+                                    id="exampleInputEmail1"
+                                    aria-describedby="emailHelp"
+                                    placeholder="Enter email" />
+                                <small id="emailHelp" className="form-text text-muted">We'll never share your email with anyone else.</small>
+                            </div>
+                            <div className="form-group">
+                                <label htmlFor="exampleInputPassword1">Password</label>
+                                <input
+                                    onChange={(event) => setPassword(event.target.value)}
+                                    type="password"
+                                    className="form-control"
+                                    id="exampleInputPassword1"
+                                    placeholder="Password" />
+                            </div>
+                            <button type="submit" className="btn btn-primary">Login</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
 
-            <form
-                onSubmit={signupUser}
-            >
-                <input
-                    onChange={(event) => setEmail(event.target.value)}
-                    type="text"
-                    placeholder="Enter email" />
-                <input
-                    onChange={(event) => setPassword(event.target.value)}
-                    type="text"
-                    placeholder="Enter password" />
-                <button type="submit">Signup</button>
-            </form>
-            <h1>Signup Page</h1>
         </>
     )
 };

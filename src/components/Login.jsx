@@ -17,20 +17,37 @@ const Login = () => {
     }
     return (
         <>
-            <form
-                onSubmit={loginUser}
-            >
-                <input
-                    onChange={(event) => setEmail(event.target.value)}
-                    type="text"
-                    placeholder="Enter email" />
-                <input
-                    onChange={(event) => setPassword(event.target.value)}
-                    type="text"
-                    placeholder="Enter password" />
-                <button type="submit">Login</button>
-            </form>
-            <h1>Login Page</h1>
+            <div className="container">
+                <div className="row justify-content-center">
+                    <div className="col-sm-6">
+                        <h2>Login Page</h2>
+                        <hr/>
+                        <form onSubmit={loginUser}>
+                            <div className="form-group">
+                                <label htmlFor="exampleInputEmail1">Email address</label>
+                                <input
+                                    onChange={(event) => setEmail(event.target.value)}
+                                    type="email"
+                                    className="form-control"
+                                    id="exampleInputEmail1"
+                                    aria-describedby="emailHelp"
+                                    placeholder="Enter email" />
+                                <small id="emailHelp" className="form-text text-muted">We'll never share your email with anyone else.</small>
+                            </div>
+                            <div className="form-group">
+                                <label htmlFor="exampleInputPassword1">Password</label>
+                                <input
+                                    onChange={(event) => setPassword(event.target.value)}
+                                    type="password"
+                                    className="form-control"
+                                    id="exampleInputPassword1"
+                                    placeholder="Password" />
+                            </div>
+                            <button type="submit" className="btn btn-primary">Login</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
         </>
     )
 };
