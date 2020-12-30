@@ -1,3 +1,4 @@
+import { useState, useEffect } from "react";
 import logo from "./logo.svg";
 import "./App.css";
 import { firebaseClient } from "./firebase/firebase-client";
@@ -8,8 +9,27 @@ import Signup from "./components/Signup";
 import Home from "./components/Home";
 
 import UserContext from "./context/UserContext";
+import Initial from "./components/Initial";
 
 function App() {
+  const [user, setUser] = useState(null);
+  const [initial, setInitial] = useState(false);
+
+  useEffect(()=>{
+    firebaseClient.auth().onAuthStateChanged((user)=>{
+      if(user !== null) {
+        setUser(user);
+      }
+      setInitial(true)
+    })
+  }, []);
+
+  if(initial === false) {
+    return (
+      <Initial/>
+    )
+  }
+
   return (
     <Router>
       <div>
@@ -29,7 +49,7 @@ function App() {
 
         {/* A <Switch> looks through its children <Route>s and
           renders the first one that matches the current URL. */}
-        <UserContext.Provider value="hello everyone">
+        <UserContext.Provider value={user}>
           <Switch>
             <Route path="/login">
               <Login />
